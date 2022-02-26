@@ -15,7 +15,6 @@ void Sort(int *arr, int n, int *swaps, int *comparisons)
       }
     }
     med = arr[i];
-    swaps[0]++;
     arr[i] = arr[m];
     swaps[0]++;
     arr[m] = med;
