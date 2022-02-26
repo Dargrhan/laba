@@ -131,8 +131,8 @@ int main (void){
     for (n = 10; n<=10000; n = n*10){
         int i;
         for (int i = n-1; i>=0; i--) {
-            Arr[i] = i;
-            Arr2[i] = Arr[i];
+            Arr[n-i-2] = i;
+            Arr2[n-i-2] = Arr[i];
             //printf("%d ", Arr[i]);
         }
         printf("\n");
