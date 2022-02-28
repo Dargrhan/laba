@@ -58,38 +58,45 @@ void quickSort(int *arr, int left, int right, int *swaps, int *comparisons)
   if (right > k)
     quickSort(arr, k + 1, right, swaps, comparisons);
 }
+void rand_array(int n, int *Arr, int *Arr2){
+    int i;
+        for (int i = 0; i<n; i++) {
+            Arr[i] = rand() % 507 - 100;
+            Arr2[i] = Arr[i];
+        }
+}
+void up_array(int n, int *Arr, int *Arr2){
+    for (int i = 0; i<n; i++) {
+            Arr[i] = i;
+            Arr2[i] = Arr[i];
+        }
+}
+void down_array(int n, int *Arr, int *Arr2){
+    int o=0;
+    for (int i = n-1; i>=0; i--) {
+            Arr[o] = i;
+            Arr2[o] = Arr[o];
+            o++;
+    }
+}
+
 int main (void){
     int Arr[20000];
     int Arr2[20000];
-    int n;
     int comparisons[5];
     comparisons[0] = 0;
     comparisons[1] = 0;
     int swaps[5]; //счетчик (0 - sort. 1 элемент - quick sort)
     swaps[0] = 0;
     swaps[1] = 0;
-    for (n = 10; n<=10000; n = n*10){
-        int i;
-        for (int i = 0; i<n; i++) {
-            Arr[i] = rand() % 201 - 100;
-            Arr2[i] = Arr[i];
-            //printf("%d ", Arr[i]);
-        }
-        printf("\n");
+    for (int n = 10; n<=10000; n = n*10){
+        rand_array(n, Arr, Arr2);
         int left = 0;
         int right = n - 1;
         quickSort(Arr, left, right, swaps, comparisons);
         Sort(Arr2, n, swaps, comparisons);
-        for ( int i = 0; i < n; i ++){
-            //printf("%d ", Arr[i]);
-        }
-        //printf("\n");
-        for ( int i = 0; i < n; i ++){
-            //printf("%d ", Arr2[i]);
-        }
-        printf("\n");
-        printf("%d %d ", swaps[0], comparisons[0]);
-        printf("%d %d", swaps[1], comparisons[1]);
+        printf("%d %d - sort; ", swaps[0], comparisons[0]);
+        printf("%d %d - qsort; ", swaps[1], comparisons[1]);
     }
     printf("rand\n");
     
@@ -97,28 +104,14 @@ int main (void){
     comparisons[1] = 0; 
     swaps[0] = 0;
     swaps[1] = 0;
-    for (n = 10; n<=10000; n = n*10){
-        int i;
-        for (int i = 0; i<n; i++) {
-            Arr[i] = i;
-            Arr2[i] = Arr[i];
-            //printf("%d ", Arr[i]);
-        }
-        printf("\n");
+    for (int n = 10; n<=10000; n = n*10){
+        up_array(n, Arr, Arr2);
         int left = 0;
         int right = n - 1;
         quickSort(Arr, left, right, swaps, comparisons);
         Sort(Arr2, n, swaps, comparisons);
-        for ( int i = 0; i < n; i ++){
-            //printf("%d ", Arr[i]);
-        }
-        printf("\n");
-        for ( int i = 0; i < n; i ++){
-            //printf("%d ", Arr2[i]);
-        }
-        printf("\n");
-        printf("%d %d ", swaps[0], comparisons[0]);
-        printf("%d %d ", swaps[1], comparisons[1]);
+        printf("%d %d - sort; ", swaps[0], comparisons[0]);
+        printf("%d %d - qsort; ", swaps[1], comparisons[1]);
     }
     printf("voz\n");
     
@@ -127,30 +120,15 @@ int main (void){
     comparisons[1] = 0; 
     swaps[0] = 0;
     swaps[1] = 0;
-    for (n = 10; n<=10000; n = n*10){
-        int i;
-        int o=0;
-        for (int i = n-1; i>=0; i--) {
-            Arr[o] = i;
-            Arr2[o] = Arr[o];
-            o++;
-            //printf("%d ", Arr[n]);
-        }
-        printf("\n");
+    for (int n = 10; n<=10000; n = n*10) {
+        down_array(n, Arr, Arr2);
         int left = 0;
         int right = n - 1;
         quickSort(Arr, left, right, swaps, comparisons);
         Sort(Arr2, n, swaps, comparisons);
-        for ( int i = 0; i < n; i ++){
-            //printf("%d ", Arr[i]);
-        }
-        printf("\n");
-        for ( int i = 0; i < n; i ++){
-            //printf("%d ", Arr2[i]);
-        }
-        printf("\n");
-        printf("%d %d ", swaps[0], comparisons[0]);
-        printf("%d %d ", swaps[1], comparisons[1]);
+        printf("%d %d - sort; ", swaps[0], comparisons[0]);
+        printf("%d %d - qsort; ", swaps[1], comparisons[1]);
     }
     printf("ub\n");
     return 0;
+}
