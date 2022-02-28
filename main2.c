@@ -129,10 +129,12 @@ int main (void){
     swaps[1] = 0;
     for (n = 10; n<=10000; n = n*10){
         int i;
+        int o=0;
         for (int i = n-1; i>=0; i--) {
-            Arr[n-i-2] = i;
-            Arr2[n-i-2] = Arr[i];
-            //printf("%d ", Arr[i]);
+            Arr[o] = i;
+            Arr2[o] = Arr[o];
+            o++;
+            //printf("%d ", Arr[o]);
         }
         printf("\n");
         int left = 0;
