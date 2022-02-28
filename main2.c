@@ -10,7 +10,7 @@ void Sort(int *arr, int n, int *swaps, int *comparisons)
     for (int j = i + 1; j < n; j++)
     {
       comparisons[0]++;
-      if (abs(arr[j]) < abs(arr[m])) {
+      if (abs(arr[j]) > abs(arr[m])) {
         m = j;   
       }
     }
@@ -28,7 +28,7 @@ void quickSort(int *arr, int left, int right, int *swaps, int *comparisons)
   k = (arr[left]);
   while (left < right)
   {
-    while (abs(arr[right]) >= abs(k) && (left < right)){
+    while (abs(arr[right]) <= abs(k) && (left < right)){
       comparisons[1]+=1;
       right--;
     }
@@ -38,7 +38,7 @@ void quickSort(int *arr, int left, int right, int *swaps, int *comparisons)
       arr[left] = arr[right]; 
       left++; 
     }
-    while (abs(arr[left]) <= abs(k) && (left < right)){
+    while (abs(arr[left]) >= abs(k) && (left < right)){
       left++; 
       comparisons[1]+=1;
     }
@@ -134,7 +134,7 @@ int main (void){
             Arr[o] = i;
             Arr2[o] = Arr[o];
             o++;
-            //printf("%d ", Arr[o]);
+            //printf("%d ", Arr[n]);
         }
         printf("\n");
         int left = 0;
@@ -154,4 +154,3 @@ int main (void){
     }
     printf("ub\n");
     return 0;
-}
