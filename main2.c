@@ -14,10 +14,12 @@ void Sort(int *arr, int n, int *swaps, int *comparisons)
         m = j;   
       }
     }
-    med = arr[i];
-    arr[i] = arr[m];
-    swaps[0]++;
-    arr[m] = med;
+    if (arr[m]!=arr[i]) {
+        med = arr[i];
+        arr[i] = arr[m];
+        swaps[0]++;
+        arr[m] = med;
+    }
   }
 }
 void quickSort(int *arr, int left, int right, int *swaps, int *comparisons)
@@ -61,7 +63,7 @@ void quickSort(int *arr, int left, int right, int *swaps, int *comparisons)
 void rand_array(int n, int *Arr, int *Arr2){
     int i;
         for (int i = 0; i<n; i++) {
-            Arr[i] = rand() % 507 - 100;
+            Arr[i] = rand() % 104 - 100;
             Arr2[i] = Arr[i];
         }
 }
